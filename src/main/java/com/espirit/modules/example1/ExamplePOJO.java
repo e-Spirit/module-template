@@ -1,8 +1,8 @@
 package com.espirit.modules.example1;
 
-import com.espirit.modules.example1.dataaccess.ExampleDataAccessPlugin;
-import com.espirit.modules.example1.dataaccess.ExampleDataAccessSession;
-import com.espirit.modules.example1.dataaccess.ExampleDataStream;
+import com.espirit.modules.example1.dataaccess.plugin.ExampleDataAccessPlugin;
+import com.espirit.modules.example1.dataaccess.session.ExampleDataAccessSession;
+import com.espirit.modules.example1.dataaccess.datastream.ExampleDataStream;
 
 /**
  * Example Plain Old Java Object

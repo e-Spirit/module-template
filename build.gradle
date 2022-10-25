@@ -115,13 +115,13 @@ task replaceNames() {
             into("tmp")
             filter {
                 String line ->
-                    line.replaceAll("To_be_renamed", "${rootProjectName.trim()}").replaceAll("to_be_renamed", "${rootProjectName.trim().toLowerCase()}")
+                    line.replaceAll("To_be_renamed", "${project.property('firstSpiritModule.moduleName').trim()}").replaceAll("to_be_renamed", "${project.property('firstSpiritModule.moduleName').trim().toLowerCase()}")
             }
             rename { String filename ->
-                filename.replace("To_be_renamed", "${rootProjectName.trim()}").replace("to_be_renamed", "${rootProjectName.trim().toLowerCase()}")
+                filename.replace("To_be_renamed", "${project.property('firstSpiritModule.moduleName').trim()}").replace("to_be_renamed", "${project.property('firstSpiritModule.moduleName').trim().toLowerCase()}")
             }
             filesMatching("**/to_be_renamed/**") {
-                it.path = it.path.replace("to_be_renamed", "${rootProjectName.trim().toLowerCase()}")
+                it.path = it.path.replace("to_be_renamed", "${project.property('firstSpiritModule.moduleName').trim().toLowerCase()}")
             }
         }
     }

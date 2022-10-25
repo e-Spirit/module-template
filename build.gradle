@@ -104,3 +104,47 @@ afterEvaluate {
         }
     }
 }
+
+task replaceNames() {
+    doLast {
+        copy {
+            from("src") {
+                include "**"
+            }
+            // Have to use a new path for modified files
+            into("tmp")
+            filter {
+                String line ->
+                    line.replaceAll("To_be_renamed", "${rootProjectName.trim()}").replaceAll("to_be_renamed", "${rootProjectName.trim().toLowerCase()}")
+            }
+            rename { String filename ->
+                filename.replace("To_be_renamed", "${rootProjectName.trim()}").replace("to_be_renamed", "${rootProjectName.trim().toLowerCase()}")
+            }
+            filesMatching("**/to_be_renamed/**") {
+                it.path = it.path.replace("to_be_renamed", "${rootProjectName.trim().toLowerCase()}")
+            }
+        }
+    }
+}
+
+task copyFromTemp(dependsOn: [replaceNames]) {
+    doLast {
+        copy {
+            from("tmp") {
+                include "**"
+            }
+            into("src")
+        }
+    }
+}
+
+// Finally, delete the files in folder B
+task initModule(type: Delete, dependsOn: copyFromTemp) {
+    delete("tmp")
+    delete "src/main/java/com/espirit/modules/to_be_renamed"
+    delete "src/test/java/com/espirit/modules/to_be_renamed"
+    delete "src/main/fsm-resources/to_be_renamed"
+    delete "src/main/resources/to_be_renamed.properties"
+    delete "src/main/resources/to_be_renamed_de.properties"
+    delete "src/main/resources/to_be_renamed_en.properties"
+}

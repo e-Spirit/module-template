@@ -1,6 +1,6 @@
 # FirstSpirit Module Template
  
-Generic template of a FirstSpirit module. Fill the skeleton with code and write a proper readme documentation to get started.
+Generic template of a FirstSpirit module including examples. Fill the skeleton with code and write a proper readme documentation to get started.
 
 ## Preparation
 

@@ -30,24 +30,60 @@ retrieved through a simple
 Within the gradle.properties file of this project you have to setup the following variables:
 
 - **version** 
-  - The version identifier of your module
+  - The version identifier of your module, e.g. `version=0.0.1-SNAPSHOT`
 - **firstSpiritModule.moduleName** 
   - The name of your module containing no blank spaces. Should start with a capital
-  letter as it is also used to rename classfiles, etc.
+  letter as it is also used to rename classfiles, etc., e.g. `firstSpiritModule.moduleName=ModuleSkeleton`
 - **firstSpiritModule.displayName** 
-  - The name of your module to be displayed within the server configuration
+  - The name of your module to be displayed within the server configuration, e.g. `firstSpiritModule.displayName=Module Skeleton`
 - **firstSpiritModule.description**
-  - The description of your module to be displayed within the server configuration
+  - The description of your module to be displayed within the server configuration, e.g. `firstSpiritModule.description=An example description.`
 - **firstSpiritModule.vendor**
-  - The vendor of you module, i.e. your company
+  - The vendor of you module, i.e. your company, e.g. `firstSpiritModule.vendor=Crownpeak`
 - **groupId**
-  - The group ID to identify your module if uploaded to an artifactory
+  - The group ID to identify your module if uploaded to an artifactory, e.g. `groupId=com.espirit.modules.mymodule`
 - **publishing.releaseRepository**
-  - The repository to upload the release version of your module to
+  - The repository to upload the release version of your module to, e.g. `publishing.releaseRepository=my-department-release`
 - **publishing.snapshotRepository**
-  - The repository to upload the snapshot / development version of your module to
+  - The repository to upload the snapshot / development version of your module to, e.g. `publishing.snapshotRepository=my-department-snapshot`
 - **rootProjectName**
-  - The Gradle project name
+  - The Gradle project name, e.g. `rootProjectName=Module Skeleton`
+  ```
+  #  ----------------------------------
+  # | FirstSpirit Module configuration |
+  #  ----------------------------------
+  #
+  # ENTER YOUR MODULE VERSION
+  version=
+  #
+  # ENTER THE NAME OF YOUR MODULE
+  firstSpiritModule.moduleName=
+  #
+  # ENTER DISPLAY NAME OF YOUR MODULE
+  firstSpiritModule.displayName=
+  #
+  # ENTER DESCRIPTION OF YOUR MODULE
+  firstSpiritModule.description=
+  #
+  #CHANGE VENDOR OF YOUR MODULE
+  firstSpiritModule.vendor=
+  #
+  # ENTER YOUR GROUP ID
+  groupId=
+  #
+  # ENTER PUBLISHING CONFIGURATION
+  publishing.releaseRepository=
+  publishing.snapshotRepository=
+  #
+  #
+  # 
+  #  ------------------------------
+  # | Gradle Project configuration |
+  #  ------------------------------
+  #
+  # ENTER NAME OF YOUR GRADLE PROJECT HERE
+  rootProjectName=
+  ```
 
 ### Initialize Module Skeleton
 
@@ -59,13 +95,13 @@ you do not wish to automatically refactor your project you can also replace all 
 
 ### Debug SiteArchitect
 In some cases it is helpful to be able to debug your own implementation in SiteArchitect. With the gradle task 
-**'startSiteArchitect'** it is possible to start a SiteArchitect from the IDE.
+*startSiteArchitect* it is possible to start a SiteArchitect from the IDE.
 ###### Configuration
 - Module must be installed on server
 - Add the following properties to the local gradle.properties in your home directory `$HOME/.gradle/gradle.properties`
-  - `firstSpirit.debug.host`
+  - **firstSpirit.debug.host**
     - The host to connect to, e.g. `firstSpirit.debug.host=smart-living.e-spirit.hosting`
-  - `firstSpirit.debug.projectId`
+  - **firstSpirit.debug.projectId**
     - The project to be opened, e.g. `firstSpirit.debug.projectId=424242`
     ```
     # FIRSTSPIRIT DEBUG PROPERTIES

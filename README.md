@@ -29,18 +29,25 @@ retrieved through a simple
 
 Within the gradle.properties file of this project you have to setup the following variables:
 
--**version** The version identifier of your module
-
--**firstSpiritModule.moduleName** The name of your module containing no blank spaces. Should start with a capital
-letter as it is also used to rename classfiles, etc.
-
--**firstSpiritModule.displayName** The name of your module to be displayed within the server configuration
--**firstSpiritModule.description** The description of your module to be displayed within the server configuration
--**firstSpiritModule.vendor** The vendor of you module, i.e. your company
--**groupId** The group ID to identify your module if uploaded to an artifactory
--**publishing.releaseRepository** The repository to upload the release version of your module to
--**publishing.snapshotRepository** The repository to upload the snapshot / development version of your module to
--**rootProjectName** The Gradle project name
+- **version** 
+  - The version identifier of your module
+- **firstSpiritModule.moduleName** 
+  - The name of your module containing no blank spaces. Should start with a capital
+  letter as it is also used to rename classfiles, etc.
+- **firstSpiritModule.displayName** 
+  - The name of your module to be displayed within the server configuration
+- **firstSpiritModule.description**
+  - The description of your module to be displayed within the server configuration
+- **firstSpiritModule.vendor**
+  - The vendor of you module, i.e. your company
+- **groupId**
+  - The group ID to identify your module if uploaded to an artifactory
+- **publishing.releaseRepository**
+  - The repository to upload the release version of your module to
+- **publishing.snapshotRepository**
+  - The repository to upload the snapshot / development version of your module to
+- **rootProjectName**
+  - The Gradle project name
 
 ### Initialize Module Skeleton
 
@@ -50,19 +57,24 @@ After setting up the project's gradle.properties one can execute the *initModule
 you do not wish to automatically refactor your project you can also replace all occurences of *to_be_renamed* and
 *To_be_renamed* (note case sensivity!) in filenames, packages and within files manually.
 
-
-
-<!-- EXAMPLE MARKDOWN 
-
-## Topic #1
-- Just a sample bullet point
-- And another one...
-    - Some more
-    - This is how you can write your module's readme.md
-
-## Topic #2
-
-### SubTopic #1
-1. Do something
-2. Do some **more**
--->
+### Debug SiteArchitect
+In some cases it is helpful to be able to debug your own implementation in SiteArchitect. With the gradle task 
+**'startSiteArchitect'** it is possible to start a SiteArchitect from the IDE.
+###### Configuration
+- Module must be installed on server
+- Add the following properties to the local gradle.properties in your home directory `$HOME/.gradle/gradle.properties`
+  - `firstSpirit.debug.host`
+    - The host to connect to, e.g. `firstSpirit.debug.host=smart-living.e-spirit.hosting`
+  - `firstSpirit.debug.projectId`
+    - The project to be opened, e.g. `firstSpirit.debug.projectId=424242`
+    ```
+    # FIRSTSPIRIT DEBUG PROPERTIES
+    # ENTER THE HOST TO CONNECT TO HEAR (e.g. smartliving.e-spirit.hosting)
+    firstSpirit.debug.host=
+    # ENTER THE PROJECT ID TO CONNECT TO HEAR
+    firstSpirit.debug.projectId=
+    ```
+###### Features
+- Uses locally compiled classes (may differ from those in installed module!)
+- Allows testing client plugins without repeated module installation
+- Possibility to set breakpoints in code

@@ -1,6 +1,6 @@
 # FirstSpirit Module Template
  
-Generic template of a FirstSpirit module. Fill the skeleton and write a proper readme documentation to get started.
+Generic template of a FirstSpirit module. Fill the skeleton with code and write a proper readme documentation to get started.
 
 ## Preparation
 
@@ -39,7 +39,7 @@ Within the gradle.properties file of this project you have to setup the followin
 - **firstSpiritModule.description**
   - The description of your module to be displayed within the server configuration, e.g. `firstSpiritModule.description=An example description.`
 - **firstSpiritModule.vendor**
-  - The vendor of you module, i.e. your company, e.g. `firstSpiritModule.vendor=Crownpeak`
+  - The vendor of your module, i.e. your company, e.g. `firstSpiritModule.vendor=Crownpeak`
 - **groupId**
   - The group ID to identify your module if uploaded to an artifactory, e.g. `groupId=com.espirit.modules.mymodule`
 - **publishing.releaseRepository**
@@ -90,8 +90,8 @@ Within the gradle.properties file of this project you have to setup the followin
 After setting up the project's gradle.properties one can execute the *initModule* Gradle task by simply executing
 `gradle initModule` or running the task from your IDE. This task will take the name specified as 
 *firstSpiritModule.moduleName* (see above) and rename all classes, variables and packages according to your needs. If
-you do not wish to automatically refactor your project you can also replace all occurences of *to_be_renamed* and
-*To_be_renamed* (note case sensivity!) in filenames, packages and within files manually.
+you do not wish to automatically refactor your project you can also replace all occurrences of *to_be_renamed* and
+*To_be_renamed* (note case sensitivity!) in filenames, packages and within files manually.
 
 ### Debug SiteArchitect
 In some cases it is helpful to be able to debug your own implementation in SiteArchitect. With the gradle task 
@@ -114,3 +114,15 @@ In some cases it is helpful to be able to debug your own implementation in SiteA
 - Uses locally compiled classes (may differ from those in installed module!)
 - Allows testing client plugins without repeated module installation
 - Possibility to set breakpoints in code
+
+## Legal Notices
+The FirstSpirit Module Template is a product of Crownpeak Technology GmbH, Dortmund, Germany.
+The FirstSpirit Module Template is subject to the Apache-2.0 license.
+
+## Disclaimer
+This document is provided for information purposes only. Crownpeak may change the contents hereof without notice.
+This document is not warranted to be error-free, nor subject to any other warranties or conditions, whether expressed
+orally or implied in law, including implied warranties and conditions of merchantability or fitness for a particular
+purpose. Crownpeak specifically disclaims any liability with respect to this document and no contractual obligations
+are formed either directly or indirectly by this document. The technologies, functionality, services, and processes
+described herein are subject to change without notice.

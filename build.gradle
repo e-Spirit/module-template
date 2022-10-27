@@ -112,49 +112,6 @@ afterEvaluate {
     }
 }
 
-/*
- * Debug task to start a FirstSpirit SiteArchitect
- */
-
-tasks.register('startSiteArchitect', JavaExec) {
-    ['firstSpirit.debug.host', 'firstSpirit.debug.projectId'].each {
-        if (!project.hasProperty(it) || (project.property(it) as String).trim().empty) {
-            logger.warn("Debugging not configured. Property '${it}' in gradle.properties is empty!")
-        }
-    }
-    mainClass = "de.espirit.common.bootstrap.Bootstrap"
-    classpath += files(configurations.javaClient.files)
-
-    jvmArgs = [
-            "-Dlogin.user=" + project.property("artifactory_hosting_username"),
-            "-Dlogin.password=" + project.property("artifactory_hosting_password"),
-            "-DprojectId=" + project.property("firstSpirit.debug.projectId"),
-            "-Dmode=HTTP",
-            "-DservletZone=/",
-            "-Dhost=" + project.property("firstSpirit.debug.host"),
-            "-Dregistry.file=FactoryRegistry.properties",
-            "-Dport=443",
-            "-Dcompression=2",
-            "-Dlogin.type=MAIN",
-            "-Dlocale=de",
-            "-Dlogin=client",
-            "-Djava-vm-args= --add-opens=java.base/java.lang=ALL-UNNAMED",
-            "--add-opens=java.desktop/java.awt.event=ALL-UNNAMED",
-            "--add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED",
-            "--add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED",
-            "--add-exports=java.base/sun.security.action=ALL-UNNAMED",
-            "--add-exports=java.desktop/com.apple.eawt=ALL-UNNAMED",
-            "--add-exports=java.desktop/sun.awt=ALL-UNNAMED",
-            "--add-exports=java.desktop/sun.awt.shell=ALL-UNNAMED",
-            "--add-exports=java.desktop/sun.swing=ALL-UNNAMED",
-            "--add-exports=java.desktop/sun.swing.plaf.synth=ALL-UNNAMED",
-            "--add-exports=java.desktop/sun.swing.table=ALL-UNNAMED",
-            "-Dencryption=1",
-            "-Dusehttps=true",
-            "-Durl=https://" + project.property("firstSpirit.debug.host"),
-    ]
-}
-
 task replaceNames() {
     doLast {
         copy {
@@ -197,4 +154,47 @@ task initModule(type: Delete, dependsOn: copyFromTemp) {
     delete "src/main/resources/to_be_renamed.properties"
     delete "src/main/resources/to_be_renamed_de.properties"
     delete "src/main/resources/to_be_renamed_en.properties"
+}
+
+/*
+ * Debug task to start a FirstSpirit SiteArchitect
+ */
+
+task startSiteArchitect(type: JavaExec) {
+    ['firstSpirit.debug.host', 'firstSpirit.debug.projectId'].each {
+        if (!project.hasProperty(it) || (project.property(it) as String).trim().empty) {
+            logger.warn("Debugging not configured. Property '${it}' in gradle.properties is empty!")
+        }
+    }
+    mainClass = "de.espirit.common.bootstrap.Bootstrap"
+    classpath += files(configurations.javaClient.files)
+
+    jvmArgs = [
+            "-Dlogin.user=" + project.property("artifactory_hosting_username"),
+            "-Dlogin.password=" + project.property("artifactory_hosting_password"),
+            "-DprojectId=" + project.property("firstSpirit.debug.projectId"),
+            "-Dmode=HTTP",
+            "-DservletZone=/",
+            "-Dhost=" + project.property("firstSpirit.debug.host"),
+            "-Dregistry.file=FactoryRegistry.properties",
+            "-Dport=443",
+            "-Dcompression=2",
+            "-Dlogin.type=MAIN",
+            "-Dlocale=de",
+            "-Dlogin=client",
+            "-Djava-vm-args= --add-opens=java.base/java.lang=ALL-UNNAMED",
+            "--add-opens=java.desktop/java.awt.event=ALL-UNNAMED",
+            "--add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED",
+            "--add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED",
+            "--add-exports=java.base/sun.security.action=ALL-UNNAMED",
+            "--add-exports=java.desktop/com.apple.eawt=ALL-UNNAMED",
+            "--add-exports=java.desktop/sun.awt=ALL-UNNAMED",
+            "--add-exports=java.desktop/sun.awt.shell=ALL-UNNAMED",
+            "--add-exports=java.desktop/sun.swing=ALL-UNNAMED",
+            "--add-exports=java.desktop/sun.swing.plaf.synth=ALL-UNNAMED",
+            "--add-exports=java.desktop/sun.swing.table=ALL-UNNAMED",
+            "-Dencryption=1",
+            "-Dusehttps=true",
+            "-Durl=https://" + project.property("firstSpirit.debug.host"),
+    ]
 }

@@ -1,3 +1,22 @@
+### Archived Repository
+This module is no longer actively developed or maintained within this repository.
+
+We are happy to announce that further development has been taken over by the e-Spirit Usergroup e.V. community! 🎉
+
+You can find the latest version of the module, along with ongoing support and updates, at the following location:
+
+[https://github.com/e-Spirit-Usergroup/module-template](https://github.com/e-Spirit-Usergroup/module-template)
+
+We encourage you to visit the new repository and connect with the e-Spirit Usergroup community for future development and collaboration.
+
+### About the e-Spirit Usergroup e.V.
+
+The e-Spirit Usergroup e.V. is a community of e-Spirit users dedicated to sharing knowledge, best practices, and resources. Learn more about their work and how to get involved here:
+
+[https://e-spirit-usergroup.com](https://e-spirit-usergroup.com)
+
+---
+
 # FirstSpirit Module Template
  
 Generic template of a FirstSpirit module including examples. Fill the skeleton with code and write a proper readme documentation to get started.

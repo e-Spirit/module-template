@@ -11,7 +11,9 @@ We encourage you to visit the new repository and connect with the e-Spirit Userg
 
 ### About the e-Spirit Usergroup e.V.
 
-The e-Spirit Usergroup e.V. is a community of e-Spirit users dedicated to sharing knowledge, best practices, and resources. Learn more about their work and how to get involved here:
+The e-Spirit Usergroup e.V. is a community for anyone with a professional connection to Crownpeak products – users, customers, or partners who utilize Crownpeak products or provide services related to them.
+
+The community focuses on the exchange of knowledge, best practices, and resources among developers and software architects working with Crownpeak DXP products. Learn more about the work of the user group and how to get involved here:
 
 [https://e-spirit-usergroup.com](https://e-spirit-usergroup.com)
 
